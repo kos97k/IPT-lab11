@@ -27,7 +27,7 @@ class Course extends BaseModel
         return $result;
     }
 
-    
+   
     public function find($code)
     {
         $sql = "SELECT * FROM courses WHERE course_code = ?";
@@ -53,6 +53,26 @@ class Course extends BaseModel
         $statement = $this->db->prepare($sql);
         $statement->execute(['course_code' => $course_code]);
         $result = $statement->fetchAll(PDO::FETCH_CLASS, '\App\Models\Student');
+        return $result;
+    }
+
+    
+    public function getCourseCode()
+    {
+        $sql = "SELECT course_code FROM courses";
+        $statement = $this->db->prepare($sql);
+        $statement->execute();
+        $result = $statement->fetchAll(PDO::FETCH_COLUMN); 
+        return $result;
+    }
+
+    
+    public function getCourseName()
+    {
+        $sql = "SELECT course_name FROM courses";
+        $statement = $this->db->prepare($sql);
+        $statement->execute();
+        $result = $statement->fetchAll(PDO::FETCH_COLUMN); 
         return $result;
     }
 }
