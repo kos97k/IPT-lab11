@@ -1,0 +1,25 @@
+<table class="table">
+    <thead>
+        <tr>
+            <th>Course Name</th>
+            <th>Course Code</th>
+            <th>Enrolled Students</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#items}}
+        <tr>
+            <td>{{course_name}}</td>
+            <td>{{course_code}}</td>
+            <td>{{enrolled_students}}</td>
+            <td>
+                <a href="/export-course/{{course_code}}" class="btn btn-secondary">Export to PDF</a>
+            </td>
+        </tr>
+        {{/items}}
+    </tbody>
+</table>
+
+<hr />
+<li><a href="/students">List of students</a></li>
